@@ -20,7 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-eozznmen&!^p0a=urrb(e*v*t^wx-zsspgy7-2%r0+wpu)7+&f")
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,toursite-l451.onrender.com').split(',')
+
+
 
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
@@ -89,7 +92,6 @@ DATABASES = {
 }
 
 
-import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(default='postgresql://tour_django_render_user:wWclQoqg0dKVp8bN7KT1mAdr5a5U2R53@dpg-ct2sm5btq21c73b7k5tg-a.oregon-postgres.render.com:5432/tour_django_render')
