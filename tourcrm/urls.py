@@ -19,20 +19,23 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.conf import settings
+from django.conf.urls.static import static
 
+# Customize admin site
 admin.site.site_header = "RISING DESTINATION"
 admin.site.site_title = "Rising Destination Admin Portal"
-admin.site.index_title = "Welcome to Rising Destination  Portal"
+admin.site.index_title = "Welcome to Rising Destination Portal"
 
+# Base urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tour.urls')),
-    path("tour/token/",TokenObtainPairView.as_view(), name = "get_token"),
-    path('token', TokenRefreshView.as_view(), name = 'token-refresh')
-   
-   
-   
+    path("tour/token/", TokenObtainPairView.as_view(), name="get_token"),
+    path('token', TokenRefreshView.as_view(), name='token-refresh'),
 ]
 
-
+# Add static file serving during development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
