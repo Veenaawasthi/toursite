@@ -94,7 +94,7 @@ DATABASES = {
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://travel_django_render_user:hHy6X6FjKNTVO8cMqFTLEElIfuPNN1jo@dpg-ctmll8lumphs73dgi0k0-a/travel_django_render:5432/travel_django_render')
+    'default': dj_database_url.config(default='postgresql://travel_django_render_user:hHy6X6FjKNTVO8cMqFTLEElIfuPNN1jo@dpg-ct2sm5btq21c73b7k5tg-a.oregon-postgres.render.com:5432/travel_django_render')
 }
 
 AUTH_PASSWORD_VALIDATORS = [
