@@ -82,19 +82,23 @@ WSGI_APPLICATION = 'tourcrm.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Set the database engine to PostgreSQL
-        'NAME': 'travel_django_render',               # Your database name
-        'USER': 'travel_django_render_user',          # Your database user
-        'PASSWORD': 'hHy6X6FjKNTVO8cMqFTLEElIfuPNN1jo',  # Your database password
-        'HOST': 'dpg-ctmll8lumphs73dgi0k0-a/travel_django_render',  # Render's PostgreSQL host
-        'PORT': '5432',                             # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'travel_django_render',
+        'USER': 'travel_django_render_user',
+        'PASSWORD': 'hHy6X6FjKNTVO8cMqFTLEElIfuPNN1jo',
+        'HOST': 'dpg-ct2sm5btq21c73b7k5tg-a.oregon-postgres.render.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',  # Ensure SSL is required
+        },
     }
 }
 
 
 
+
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://travel_django_render_user:hHy6X6FjKNTVO8cMqFTLEElIfuPNN1jo@dpg-ct2sm5btq21c73b7k5tg-a.oregon-postgres.render.com:5432/travel_django_render')
+    'default': dj_database_url.config(default="postgresql://travel_django_render_user:hHy6X6FjKNTVO8cMqFTLEElIfuPNN1jo@dpg-ctmll8lumphs73dgi0k0-a.oregon-postgres.render.com/travel_django_render")
 }
 
 AUTH_PASSWORD_VALIDATORS = [
